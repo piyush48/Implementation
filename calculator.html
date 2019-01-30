@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>calculator using flexbox</title>
+        <style>
+            .main{
+                 width: 25%;
+                display:flex;
+                flex-wrap: wrap;
+                background-color:royalblue;
+                background-image: linear-gradient(blue,green);
+               
+                
+            }
+            .main > div{
+                background-color: lightslategrey;
+                
+                padding: 10px;
+                border-radius: 20px;
+                margin: 20px;
+                font-size: 30px;
+                align-items: center;
+                transition:0 2s;
+                animation-name:background;
+                animation-duration: 4s;
+                
+            }
+           .main > div:hover{
+                color:aqua;
+            }
+            @keyframes background{
+                from{ background-color:rgba(115, 100, 255, 0.6)}
+                to{ background-color: rgba(7, 148, 7, 0.6);}
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <input type="text" name="calculator" size="40" placeholder="calculator" >
+
+            <input type="text" name="calculator" size="40" placeholder="" >
+            <div class="item"> 1</div>
+            <div class="item"> 2</div>
+            <div class="item"> 3</div>
+            <div class="item"> 4</div>
+            <div class="item"> 5</div>
+            <div class="item"> 6</div>
+            <div class="item"> 7</div>
+            <div class="item"> 8</div>
+            <div class="item"> 9</div>
+            <div class="item"> 0</div>
+            <div class="item"> +</div>
+            <div class="item"> -</div>
+            <div class="item"> *</div>
+            <div class="item"> /</div>
+            <div class="item"> .</div>
+            <div class="item"> =</div>
+        </div>
+        <a href="replacedata.html" style="float:right;">next page</a>
+    </body>e
+</html>

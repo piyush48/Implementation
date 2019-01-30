@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title> forms for student</title>
+	<style>
+		#container{
+			background-color: pink;
+			width:250px;
+			height: auto;
+			position: relative;
+		    margin:auto; 
+			padding: 10px;
+			top:100px;
+			text-align: center;
+		}
+		input[type="text"],input[type="date"],input[type="tel"],select
+		{
+			 width:200px;
+			padding: 10px;
+			height: auto;
+
+		}
+		table,td,th{
+			border:1px solid black;
+			border-collapse:collapse;
+		}
+        table{
+            visibility: hidden;
+        }
+	</style>
+</head>
+<body>
+    <div id="container">
+    	   <form id="myForm">
+
+      		<label>Name</label><input type="text" id="name" placeholder="Name"></br></br>
+      		<label>DOB</label><input type="date" id="dob" onchange="myChange()"></br></br>
+              <label>Age</label><input type="tel" id="age" placeholder="Age"disabled ></br></br>
+              <select id="hobbies" multiple>
+                  <option>Basketball</option>
+                  <option>Cricket</option>
+                  <option>Reading Book</option>
+                  <option>Numismatic</option>
+                  <option> Philately</option>
+              </select></br></br>
+              <input type="text" id="result" value="result" disabled> </br></br>
+      		 <input type="button" id="sbtn"value="submit">
+              <input type="reset" id="rbtn" value="reset" />
+              <input type="button" id="bt" value="compare"style="display:none;margin-left:100px;"onclick="compare()"/> </br>
+              <input type="button" id="display" value="display"style="display:none;margin-left:100px;padding:10px;"  onclick="myDisplay()"/>
+              
+             
+      		</form>
+    	
+    </div>
+     <div>
+         <p id="b"></p>
+         <p id="d"></p>
+         <p id="p"></p>
+         <p id="q"></p>
+         <p id="r"></p>
+
+     </div>
+    <table id="myTable">
+    	<tr>
+    		<th>Name</th>
+    		<th>DOB</th>
+            <th>Age</th>
+            <th>Hobbies</th>
+    	</tr>
+    </table>
+    <script type="text/javascript">
+        var ar=[];
+        var arr=[];
+        var hb=[];
+        var k=0;
+        var count=0;
+         document.querySelector('#sbtn').onclick=Addrow;
+    
+       function myChange()
+       {
+       	var date1=new Date();
+       	var date2=document.getElementById('dob').value;
+       	var date3=new Date(date2);
+       	var bage=date1.getFullYear()-date3.getFullYear();
+       	
+       	document.getElementById('age').value=bage;
+
+       }
+
+          function Addrow()
+           {  
+            var hb=[];
+             k++;
+           //console.log(k);
+           if(k==3)
+           {
+               document.getElementById('sbtn').style.display='none';
+               document.getElementById('rbtn').style.display='none';
+             
+               document.getElementById('bt').style.display='block';
+               document.getElementById('display').style.display='block';
+
+           }
+            
+           
+
+       		var name=document.getElementById("name").value;
+              // console.log(name);
+       		var date2=document.getElementById("dob").value;
+             //  console.log(date2);
+            var date1=new Date();
+            var date3=new Date(date2);
+       	    var bage=date1.getFullYear()-date3.getFullYear();
+              // console.log(bage);
+       	
+       		document.getElementById("age").value=bage;
+              
+            var x=document.getElementById("hobbies");  
+           // console.log(x);
+         
+             for(var i=0;i<x.options.length;i++)
+             {
+                // console.log(x.options.length);
+                 if(x.options[i].selected==true)
+                 {
+                   //  console.log(x.options[i]);
+                     hb.push(x.options[i].value);
+                      console.log(hb);
+                    
+                 }
+                 
+             }
+
+             document.getElementById("hobbies").value="";
+             var obj={name,date2,bage,hb};
+             //  console.log(obj);
+           
+            count++;
+            for(var j=count-1;j<count;j++)
+            {
+                ar.push(obj.bage);
+               // console.log(ar);
+                arr.push(obj);
+               // console.log(arr);
+
+
+               /* for(var j=count-1;j<count;j++)
+                {
+                    ar.push(obj.fage);
+                    console.log(ar);
+                    arr.push(obj);
+                    console.log(arr);
+                */
+
+
+         var tbl=document.getElementsByTagName('table')[0];
+         var row=tbl.insertRow();
+         var cell0=row.insertCell(0);
+         var cell1=row.insertCell(1);
+         var cell2=row.insertCell(2);
+         var cell3=row.insertCell(3);
+
+          cell0.innerHTML=arr[j].name;
+          cell1.innerHTML=arr[j].date2;
+          cell2.innerHTML=arr[j].bage;
+          cell3.innerHTML=arr[j].hb.toString();
+           }
+            
+            }
+           
+    
+         // document.getElementById("hobbies").onchange=myReset;
+    function compare()
+    {  
+        
+         var i=0;
+        if(ar[i]>ar[i+1]&&ar[i+2])
+        {
+            document.getElementById('result').value=arr[0].name+" "+" is bigger";
+        }
+        else if(ar[i+1]>ar[i]&&ar[i+1]>ar[i+2])
+        {
+            document.getElementById("result").value=arr[1].name+" "+"bigger";
+        }
+         else{
+             document.getElementById('result').value=arr[2].name+" "+"bigger";
+         }
+    }
+
+         function myReset()
+         {
+             document.getElementById("myForm").reset();
+         }
+         
+           
+           function myDisplay(){
+               document.getElementById("myTable").style="visibility:visible"
+           }
+    
+</script>
+</body>
+</html>

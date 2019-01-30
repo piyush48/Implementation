@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>replace form  data</title>
+    
+    <style>
+         
+    body {
+        background-color:gray;
+    }
+    #header{
+        background-color: black;
+        color: black;
+        width:100%;
+        top:0%;
+        text-align:center;
+         height: 50px;
+        font-weight:bold;
+        font-size: 90;
+
+    }
+    #navigator{
+        background-color:lavender;
+        width:100%;
+        top:0%;
+        height: 50px;
+        font-weight:bold;
+        font-size: 90;
+
+    }
+    #section{
+       /* margin: 10px;*/
+        width:70%;
+        background-color:aqua;
+        height:300px;
+    }
+    #article{
+       /* margin: 10px;*/
+        width:70%;
+        background-color:pink;
+        height:300px;
+    }
+    #r{
+       /* margin: 10px;*/
+        background-color:floralwhite;
+        display:block;
+        float: right;
+        height: 600px;
+        width:30%;
+    }
+    #footer{
+        background-color: aqua;
+        width:100%;
+        top:0%;
+        text-align:center;
+         height: 50px;
+        font-weight:bold;
+        font-size: 90;
+
+    }
+   table{
+        visibility: hidden;
+    }
+    a{
+        margin-left:200px;
+    }
+    </style>
+   </head>
+    <body>
+        
+        <div id="header"> 
+            <img src="header.jpeg"style="height: 50px;width: 100%;">
+        </div>
+
+
+        <div id="navigator"> 
+         <a href="https://www.google.com">google</a>
+        <a href="https://www.w3schools.com">w3schools</a>   
+        <a href="https://mail.google.com">gmail</a>
+        <a href="https://settlin.in/">settlin</a>
+        </div>
+
+
+
+        <div id="r">
+                <img src="nature.jpg" alt="nature" width="400" height="300" >
+                <img src="nature2.jpg" alt="nature" width="400" height="300" >
+           </div>
+        <div id="section">
+           
+                
+                FirstName:<input type="text"name="fname"id="fname"/></br><br>
+                LastName:<input type="text"name="lname"id="lname"/></br></br>
+               DateOfBirth:<input type="date"name="date"id="dob" onchange="calAge()"></br></br> 
+                Age:<input type="text"name="age" id="ag" disabled/></br></br>
+             
+                <button onclick="addRow();">submit</button>
+              
+        </div>
+        <div id="article">
+                <table id="tbl" border="2px bold">
+                        <tr>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>Age</th>
+                        </tr>
+                          <tr>
+                              <td id="c1"></td>
+                              <td id="c2"></td>
+                              <td id="c3"></td>
+                          </tr>
+                       
+                       
+                    </table>
+            
+        </div>
+
+
+
+<p id="demo"></p>
+
+        <div id="footer">
+                <img src="footer.png"style="height: 50px;width: 100%;">
+                  
+        </div>
+        
+                 
+                 
+        
+            <script>
+            function addRow(){
+                //get input value
+            
+                //console.log(fname.value);
+            
+             document.getElementById('tbl').style="visibility:visible;"
+             
+
+                var person={fname:document.getElementById('fname').value,
+                            lname:document.getElementById('lname').value,
+                             age:document.getElementById('ag').value
+                            
+                             }
+
+
+                          
+                //get the html table
+                //0=the first table
+                var table=document.getElementsByTagName('table')[0]; 
+                //console.log(table);
+                //add new empty row
+                //0=in the top
+                //table.rows.length=end
+              //  var newRow=table.insertRow(table.rows.length);
+                //add cells to the row
+              //  var ce11=newRow.insertCell(0);  
+               // var ce12=newRow.insertCell(1);
+              //  var ce13=newRow.insertCell(2);  
+                //add values to the cells
+                document.getElementById('c1').innerHTML=person.fname;   
+                document.getElementById('c2').innerHTML=person.lname;
+                document.getElementById('c3').innerHTML=person.age;
+                
+                
+            
+            }
+            </script>
+           <script>
+                function calAge(){
+                     var personbirth={
+                         year:document.getElementById('dob').value
+                              
+                     }
+                         var birthYear= new Date(personbirth.year).getFullYear();
+                        // document.write(birthYear);
+                        // document.write("</br>");
+                         var date=new Date();
+                         var currentYear=date.getFullYear();
+                       //  document.write(currentYear);
+                        // document.write("</br>");
+                         var age=currentYear-birthYear;
+                         //document.write(age);
+                         console.log(age);
+                         
+                      document.getElementById('ag').value= age;
+                   //   document.getElementById('c3').innerHTML.value=age;
+
+                   function disinput(){
+                        document.getElementById("age").disabled=true;
+                                       }
+                 }
+                    
+       
+                    
+                   
+        
+             </script>
+                
+        <a href="form3.html" style="float:right;">next page</a>
+    </body>
+</html>

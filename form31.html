@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title> forms for student</title>
+	<style>
+		#container{
+			background-color: pink;
+			width:250px;
+			height: auto;
+			position: relative;
+		    margin:auto; 
+			padding: 10px;
+			top:100px;
+			text-align: center;
+		}
+		input[type="text"],input[type="date"],input[type="tel"]
+		{
+			 width:200px;
+			padding: 10px;
+			height: auto;
+
+		}
+		tbale,td,th{
+			border:1px solid black;
+			border-collapse:collapse;
+		}
+	</style>
+</head>
+<body>
+    <div id="container">
+    	   <form>
+
+      		<level>Name</leve><input type="text" id="name" placeholder="Name"></br></br>
+      		<level>DOB</level><input type="date" id="dob" onchange="myChange()"></br></br>
+      		<level>Age</level><input type="tel" id="age" placeholder="Age"disabled ></br></br>
+      		<input type="button" id="sbtn"value="submit">
+              <input type="button" id="rbtn"value="reset">
+              <input type="button" id="bt" value="compare"  style="display:none;margin-left: 90px;"onclick="compare()">
+             
+      		</form>
+    	
+    </div>
+     <div>
+         <p id="b"></p>
+         <p id="d"></p>
+         <p id="p"></p>
+         <p id="q"></p>
+         <p id="r"></p>
+
+     </div>
+    <table id="myTable">
+    	<tr>
+    		<th>Name</th>
+    		<th>DOB</th>
+    		<th>Age</th>
+    	</tr>
+    </table>
+    <script type="text/javascript">
+        var ar=[];
+        var da=[];
+        var k=0;
+         document.querySelector('#sbtn').onclick=Addrow;
+
+       function myChange()
+       {
+       	var date1=new Date();
+       	var date2=document.getElementById('dob').value;
+       	var date3=new Date(date2);
+       	var bage=date1.getFullYear()-date3.getFullYear();
+       	
+       	document.getElementById('age').value=bage;
+
+       }
+
+         
+         
+       function Addrow()
+       {  
+         
+             k++;
+           //console.log(k);
+           if(k==3)
+           {
+               document.getElementById('sbtn').style.display='none';
+               document.getElementById('rbtn').style.display='none';
+               document.getElementById('bt').style.display='block';
+
+           }
+            
+           
+
+       		var detail={name:document.getElementById("name").value,
+       					dob:document.getElementById("dob").value,
+       					bage:document.getElementById("age").value
+       		}
+                ar.push(detail.bage);
+                da.push(detail.name,detail.dob,detail.bage);
+               document.getElementById('d').innerHTML=da;
+               console.log(da);
+              document.getElementById('b').innerHTML=ar;
+              console.log(ar);
+ar
+         var tbl=document.getElementsByTagName('table')[0];
+         var row=tbl.insertRow();
+         var cell0=row.insertCell(0);
+         var cell1=row.insertCell(1);
+         var cell2=row.insertCell(2);
+
+          cell0.innerHTML=detail.name;
+          cell1.innerHTML=detail.dob;
+          cell2.innerHTML=detail.bage;
+      
+
+     }
+
+
+    function compare()
+    {
+         var i=0;
+    if(ar[i]>ar[i+1] && ar[i]>ar[i+2])
+    {
+        document.getElementById("p").innerHTML=da[0]+" "+"bigger";
+    }
+    else if(ar[i+1]>ar[i] && ar[i+1]>ar[i+2])
+    {
+        document.getElementById("q").innerHTML=da[3]+"bigger";
+    }
+    else {
+        document.getElementById("r").innerHTML=da[6]+"bigger";
+    }
+    }
+
+</script>
+ <a href="form311.html" style="float:right;">next page</a>
+</body>
+</html>

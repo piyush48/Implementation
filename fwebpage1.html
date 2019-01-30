@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>my first webpage</title>
+    
+    <style>
+         
+    body {
+        background-color:gray;
+    }
+    #header{
+        background-color: black;
+        color: black;
+        width:100%;
+        top:0%;
+        text-align:center;
+         height: 50px;
+        font-weight:bold;
+        font-size: 90;
+
+    }
+    #navigator{
+        background-color:lavender;
+        width:100%;
+        top:0%;
+        height: 50px;
+        font-weight:bold;
+        font-size: 90;
+
+    }
+    #section{
+       /* margin: 10px;*/
+        width:70%;
+        background-color:aqua;
+        height:300px;
+    }
+    #article{
+       /* margin: 10px;*/
+        width:70%;
+        background-color:pink;
+        height:300px;
+    }
+    #r{
+       /* margin: 10px;*/
+        background-color:floralwhite;
+        display:block;
+        float: right;
+        height: 600px;
+        width:30%;
+    }
+    #footer{
+        background-color: aqua;
+        width:100%;
+        top:0%;
+        text-align:center;
+         height: 50px;
+        font-weight:bold;
+        font-size: 90;
+
+    }
+    </style>
+   </head>
+    <body>
+        
+        <div id="header"> 
+            <img src="header.jpeg"style="height: 50px;width: 100%;">
+        </div>
+
+
+        <div id="navigator"> 
+        <a href="https://www.google.com"style="padding:150px">google</a>
+        <a href="https://www.w3schools.com"style="padding:150px">w3schools</a>   
+        <a href="https://mail.google.com"style="padding:150px">gmail</a>
+        <a href="https://settlin.in/"style="padding:100px">settlin</a>
+        </div>
+
+
+
+        <div id="r">
+                <img src="nature.jpg" alt="nature" width="400" height="300" >
+                <img src="nature2.jpg" alt="nature" width="400" height="300" >
+           </div>
+        <div id="section">
+           
+
+               <table style = "border:1px solid">
+                    <tr>
+                        <th></th>
+                        <th>ABC</th>
+                        <th>BBC</th>
+                        <th>CNN</th>
+                        </tr>
+                        <tr>
+                        <th>6pm - 7pm</th>
+                        <td rowspan="2">Movie</td>
+                        <td>Comedy</td>
+                        <td>News</td>
+                        </tr>
+                        <tr>
+                        <th>7pm - 8pm</th>
+                        <td>Sport</td>
+                        <td>Current Affairs</td>
+                        </tr>
+                </table>
+                <h1 id='list'>List of the book </h1>
+              <ol>
+                  <li>Science</li>
+                  <li>Maths</li>
+                  <li>English</li>
+              </ol>
+              
+        </div>
+        <div id="article">
+            <table>
+            <form id="frm1">
+                <tr><td>
+                <label>Name:</label></td>
+                <td>
+                <input type="text" name="name" maxlength="30"size="15" placeholder="first name"></td>
+                <td>
+                <input type="text" name="name" maxlength="10"size="15" placeholder="last name"></td><br></tr>
+                <tr>
+                        <tr><td>
+                                <label>Father Name:</label></td>
+                                <td>
+                                <input type="text" name="name" maxlength="30"size="15" placeholder="first name"></td>
+                                <td>
+                                <input type="text" name="name" maxlength="10"size="15" placeholder="last name"></td><br></tr>
+                                <tr>
+                    <td>
+                <label>mother name:</label></td><td>
+                <input type="text" name="name" maxlength="30" size="15"placeholder="first name"></td>
+                <td>
+                <input type="text" name="name" maxlength="10"size="15" placeholder="last name"></td>
+                
+                
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                                Email:
+                        </label></td>
+                        <td><input type="email" name="email">
+                    </td>
+                    <td><label>country:</label>
+                    <select><option>india</option>
+                        <option>pakistan</option>
+                        <option>srilanka</option>
+                        <option>china</option>
+                        <option>nepal</option>
+                     </select></td>
+
+                </tr>
+                <tr>
+                <td>
+                        <label width="100px">phone number:</label></td>
+                        <td>
+                            <input type="tel"name="phnumber"maxlength="10"size="15"></td></tr>
+                <tr>
+                      <td> <input type="submit" value="submit"></td>
+                      <td> <input type="reset" value="reset"></td>
+                    </tr>
+               
+
+            </form>
+           
+             </table>
+            
+        </div>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+        <div id="footer">
+                <img src="footer.png"style="height: 50px;width: 100%;">
+                  
+        </div>
+        <script>
+function myFunction() {
+var x = document.forms["frm1"];
+console.log(x);
+
+var text = "";
+var i;
+for (i = 0; i < x.length; i++) {
+  text += x.elements[i].value + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+}
+        </script>
+        <a href="ludo.html" style="float:right;">next page</a>
+    </body>
+</html>

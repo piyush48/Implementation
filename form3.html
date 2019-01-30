@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title> form for student</title>
+	<style>
+		#container{
+			background-color: pink;
+			width:250px;
+			height: auto;
+			position: relative;
+		    margin:auto; 
+			padding: 10px;
+			top:100px;
+			text-align: center;
+		}
+		input[type="text"],input[type="date"],input[type="tel"]
+		{
+			width:200px;
+			padding: 10px;
+			height: auto;
+
+		}
+		tbale,td,th{
+			border:1px solid black;
+			border-collapse:collapse;
+		}
+	</style>
+</head>
+<body>
+    <div id="container">
+    	   <form>
+
+      		<level>Name</leve>:<input type="text" id="name" placeholder="Name"></br></br>
+      		<level>DOB</level><input type="date" id="dob" onchange="myChange()"></br></br>
+      		<level>Age</level><input type="tel" id="age" placeholder="Age"disabled ></br></br>
+      		<input type="button" id="sbtn"value="submit" onclick="Addrow()">
+      		<input type="button" id="rbtn"value="reset">
+
+      		</form>
+    	
+    </div>
+    <table id="myTable">
+    	<tr>
+    		<th>Name</th>
+    		<th>DOB</th>
+    		<th>Age</th>
+    	</tr>
+    </table>
+    <script type="text/javascript">
+        var ar=[];
+
+       function myChange()
+       {
+       	var date1=new Date();
+       	var date2=document.getElementById('dob').value;
+       	var date3=new Date(date2);
+       	var bage=date1.getFullYear()-date3.getFullYear();
+       	 ar.push("bage");
+       	document.getElementById('age').value=bage;
+         
+
+       }
+         for(var i=0;i<3;i++)
+         {
+       function Addrow()
+       { 
+       		var detail={name:document.getElementById("name").value,
+       					dob:document.getElementById("dob").value,
+       					bage:document.getElementById("age").value
+       		}
+
+       var tbl=document.getElementsByTagName('table')[0];
+      // console.log(tbl);
+       
+       
+         var row=tbl.insertRow();
+         console.log(row);
+         var cell0=row.insertCell(0);
+         var cell1=row.insertCell(1);
+         var cell2=row.insertCell(2);
+
+          cell0.innerHTML=detail.name;
+          cell1.innerHTML=detail.dob;
+          cell2.innerHTML=detail.bage;
+      
+
+     }  
+ }
+   var len=ar.length;
+   console.log(len);
+
+   </script>
+    <a href="form31.html" style="float:right;">next page</a>
+</body>
+</html>
